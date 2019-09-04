@@ -27,7 +27,7 @@ it('normal render', () => {
   expect(inputDom.value).toBe('0');
 });
 
-it('decrease button and validate value',()=>{
+it('add button and validate value',()=>{
   act(() => {
     render(<InputIncre max={100} min={0}/>, container);
   });
@@ -52,6 +52,37 @@ it('change value directly',()=>{
   Simulate.blur(inputDom);
   expect(inputDom.value).toBe('100');
 });
+
+it('minus button and validate value',()=>{
+  act(() => {
+    render(<InputIncre max={100} min={0}/>, container);
+  });
+  const inputDom = document.querySelector('input');
+  expect(inputDom.value).toBe('0');
+  Simulate.change(inputDom,{target:{value:'20'}});
+  expect(inputDom.value).toBe('20');
+  let minusBtn = document.querySelector('button[name=decre]');
+  act(()=>{
+  	minusBtn.dispatchEvent(new MouseEvent('click',{ bubbles: true }));
+  });
+  expect(inputDom.value).toBe('19');
+});
+
+it('add and minus buttons works together',()=>{
+  act(() => {
+    render(<InputIncre max={100} min={0}/>, container);
+  });
+  const inputDom = document.querySelector('input');
+  expect(inputDom.value).toBe('0');
+  let minusBtn = document.querySelector('button[name=decre]');
+  let addBtn = document.querySelector('button[name=add]');
+  act(()=>{
+  	addBtn.dispatchEvent(new MouseEvent('click',{ bubbles: true }));
+  	minusBtn.dispatchEvent(new MouseEvent('click',{ bubbles: true }));
+  });
+  expect(inputDom.value).toBe('0');
+});
+
 
 it('change value directly with invalidate num',()=>{
   act(() => {
