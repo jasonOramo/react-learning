@@ -17,8 +17,8 @@ class InputIncre extends PureComponent{
 			count: 0
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
-		this.handleAdd = this.handleAdd.bind(this);
-		this.handleDecr = this.handleDecr.bind(this);
+		// this.handleAdd = this.handleAdd.bind(this);
+		// this.handleDecr = this.handleDecr.bind(this);
 		this.handleBlur = this.handleBlur.bind(this);
 		this._getValidateNum  = this._getValidateNum.bind(this);
 	}
@@ -30,14 +30,22 @@ class InputIncre extends PureComponent{
 		});
 		event.preventDefault();
 	}
-	handleAdd(event){
+	// handleAdd(event){
+	// 	this.setState((curr)=>{
+	// 		return {count:this._getValidateNum(curr.count, 1)};
+	// 	});
+	// }
+	// handleDecr(event){
+	// 	this.setState((curr)=>{
+	// 		return {count:this._getValidateNum(curr.count, -1)};
+	// 	});
+	// }
+	/*
+	* change the event binding way. Attention that the event parameter is the second param.
+	*/
+	handleBtnClick(addNum = 0,event){
 		this.setState((curr)=>{
-			return {count:this._getValidateNum(curr.count, 1)};
-		});
-	}
-	handleDecr(event){
-		this.setState((curr)=>{
-			return {count:this._getValidateNum(curr.count, -1)};
+			return {count: this._getValidateNum(curr.count,addNum)};
 		});
 	}
 	handleBlur(event){
@@ -59,9 +67,9 @@ class InputIncre extends PureComponent{
 	}
 	render(){
 		return (<>
-			<button name='decre' onClick={this.handleDecr}>-</button>
+			<button name='decre' onClick={this.handleBtnClick.bind(this,-1)}>-</button>
 			<input name='counter' value={this.state.count} onChange={this.handleInputChange} onBlur={this.handleBlur}/>
-			<button name='add' onClick = {this.handleAdd}>+</button>
+			<button name='add' onClick = {this.handleBtnClick.bind(this,1)}>+</button>
 			</>
 			);
 	}
