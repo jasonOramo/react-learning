@@ -1,0 +1,66 @@
+import React from 'react';
+import { render, unmountComponentAtNode } from "react-dom";
+import { act, Simulate } from "react-dom/test-utils";
+
+import InputIncre from './InputIncre';
+
+let container = null;
+beforeEach(() => {
+  // setup a DOM element as a render target
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  // cleanup on exiting
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+
+it('normal render', () => {
+  act(() => {
+    render(<InputIncre max={100} min={0}/>, container);
+  });
+  const inputDom = document.querySelector('input');
+  expect(inputDom.value).toBe('0');
+});
+
+it('decrease button and validate value',()=>{
+  act(() => {
+    render(<InputIncre max={100} min={0}/>, container);
+  });
+  const inputDom = document.querySelector('input');
+  expect(inputDom.value).toBe('0');
+  let addBtn = document.querySelector('button[name=add]');
+  act(()=>{
+  	addBtn.dispatchEvent(new MouseEvent('click',{ bubbles: true }));
+  });
+  expect(inputDom.value).toBe('1');
+});
+
+it('change value directly',()=>{
+  act(() => {
+    render(<InputIncre max={100} min={0}/>, container);
+  });
+  const inputDom = document.querySelector('input');
+  Simulate.change(inputDom,{target:{value:'20'}});
+  expect(inputDom.value).toBe('20');
+  Simulate.change(inputDom,{target:{value:'200'}});
+  expect(inputDom.value).toBe('200');
+  Simulate.blur(inputDom);
+  expect(inputDom.value).toBe('100');
+});
+
+it('change value directly with invalidate num',()=>{
+  act(() => {
+    render(<InputIncre max={100} min={0}/>, container);
+  });
+  const inputDom = document.querySelector('input');
+  Simulate.change(inputDom,{target:{value:'200'}});
+  expect(inputDom.value).toBe('200');
+  Simulate.blur(inputDom);
+  expect(inputDom.value).toBe('100');
+});
+
