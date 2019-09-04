@@ -1,3 +1,11 @@
+/*
+* This component is a learning component which contains a minus button, an input element and a add button.
+* 1. There are min and max restrictions for the inputed value, the validation is trigged when the button pressed or the input element is blured.
+* 2. User could change the value by input element or buttons.
+*
+* implementation: use PureComponent instead of Component since there  is only a count state. There is no need to deep comparision.
+*
+*/
 import React, { PureComponent } from 'react';
 
 
