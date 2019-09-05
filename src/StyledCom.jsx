@@ -3,19 +3,34 @@ import styled from 'styled-components';
 
 
 const StyledPara = styled.p`
-	
 	font-weight: bold;
 	text-decoration: underline;
+
+	& + & {
+		color: orange;
+	}
+
+	& ~ & {
+		color: blue;
+	}
+	.para-in-div &{
+		color: green;
+		text-decoration: initial;
+	}
 `;
 
 const StyledCom = ({ className })=>{
 
 	return (
 		<div className={className}>
-			<button>normal text</button>
-			<StyledPara>
-				This is a pure ui component which is used to show the basic functions of styled-components.
-			</StyledPara>
+			<h2>normal text</h2>
+			<StyledPara> This is the first paragraph.</StyledPara>
+			<StyledPara> This is the second paragraph.</StyledPara>
+			<StyledPara> This is the third paragraph.</StyledPara>
+			<div className='para-in-div'>
+				<StyledPara> This is a sub paragraph.</StyledPara>
+			</div>
+			<StyledPara> This is the fourth paragraph.</StyledPara>
 		</div>
 		)
 };
