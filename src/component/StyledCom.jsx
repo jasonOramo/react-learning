@@ -35,10 +35,17 @@ const StyledCom = ({ className })=>{
 		)
 };
 
+
+const WithStyledOver = styled(StyledCom)`
+	margin: 1rem 2rem 0 0;
+	background: red;
+`;
+
+
 const WithStyled = styled(StyledCom)`
 	border: 2px solid;
 	font-weight: normal;
 	font-size: 14px;
 	margin: 0 1.5em 0 0;
 	`;
-export default WithStyled;
+export { WithStyled as StyledCom, WithStyledOver };

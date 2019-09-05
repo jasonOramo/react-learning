@@ -3,7 +3,7 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import styled, { find } from 'styled-components/test-utils';
 
-import StyledCom from './StyledCom';
+import { StyledCom } from './StyledCom';
 
 
 let container = null;

@@ -5,13 +5,14 @@ import * as serviceWorker from './serviceWorker';
 // import InputIncre from './InputIncre';
 
 import InputIncreHooks from './component/InputIncreHooks';
-import WithStyled from './component/StyledCom';
+import { StyledCom, WithStyledOver } from './component/StyledCom';
 
 const Container = ()=>{
 	return (
 		<>
 		<InputIncreHooks max = {100} min={0}/>
-		<WithStyled/>
+		<StyledCom/>
+		<WithStyledOver />
 		</>
 		);
 };
