@@ -2,7 +2,11 @@ import React from 'react';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 
-import InputIncre from './InputIncre';
+// import InputIncre from './InputIncre';
+
+import InputIncreHooks from './InputIncreHooks';
+
+let InputIncre  = InputIncreHooks;
 
 let container = null;
 beforeEach(() => {
