@@ -22,15 +22,15 @@ const StyledPara = styled.p`
 const StyledCom = ({ className })=>{
 
 	return (
-		<div className={className}>
+		<div className={className} >
 			<h2>normal text</h2>
-			<StyledPara> This is the first paragraph.</StyledPara>
+			<StyledPara name='first'> This is the first paragraph.</StyledPara>
 			<StyledPara> This is the second paragraph.</StyledPara>
 			<StyledPara> This is the third paragraph.</StyledPara>
 			<div className='para-in-div'>
 				<StyledPara> This is a sub paragraph.</StyledPara>
 			</div>
-			<StyledPara> This is the fourth paragraph.</StyledPara>
+			<StyledPara name='fourth'> This is the fourth paragraph.</StyledPara>
 		</div>
 		)
 };

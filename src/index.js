@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import InputIncre from './InputIncre';
+// import InputIncre from './InputIncre';
 
-import InputIncreHooks from './InputIncreHooks';
-import WithStyled from './StyledCom';
+import InputIncreHooks from './component/InputIncreHooks';
+import WithStyled from './component/StyledCom';
 
 const Container = ()=>{
 	return (
