@@ -40,6 +40,7 @@ class InputIncre extends PureComponent{
 	// 		return {count:this._getValidateNum(curr.count, -1)};
 	// 	});
 	// }
+
 	/*
 	* change the event binding way. Attention that the event parameter is the second param.
 	*/
@@ -79,5 +80,7 @@ InputIncre.defaultProps = {
 	max : 100,
 	min : 0
 };
+
+
 
 export default InputIncre;

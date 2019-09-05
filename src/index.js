@@ -4,7 +4,10 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import InputIncre from './InputIncre';
 
-ReactDOM.render(<InputIncre />, document.getElementById('root'));
+import InputIncreHooks from './InputIncreHooks';
+
+
+ReactDOM.render(<InputIncreHooks max = {100} min={0}/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
