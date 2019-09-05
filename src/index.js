@@ -7,12 +7,15 @@ import * as serviceWorker from './serviceWorker';
 import InputIncreHooks from './component/InputIncreHooks';
 import { StyledCom, WithStyledOver } from './component/StyledCom';
 
+import {MouseWithMouse} from './component/MouseTracker';
+
 const Container = ()=>{
 	return (
 		<>
 		<InputIncreHooks max = {100} min={0}/>
 		<StyledCom/>
 		<WithStyledOver />
+		<MouseWithMouse />
 		</>
 		);
 };
