@@ -20,6 +20,8 @@ afterEach(() => {
   container = null;
 });
 
+
+
 it('check render', ()=>{
   act(() => {
     render(<StyledCom />, container);
@@ -28,4 +30,4 @@ it('check render', ()=>{
   const firstP = document.querySelector('p[name=first]');
   expect(firstP).not.toBeNull();
   expect(abc.contains(firstP)).toBe(true);
-})
+});
