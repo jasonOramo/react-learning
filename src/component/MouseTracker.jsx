@@ -38,19 +38,31 @@ const MouseTrackerHoc = (WrappedComponent)=>{
 };
 
 const Mouse = (props)=>{
-	const {mouse, className} = props;
+
+	const MouseDom = styled.div.attrs((mouse)=>({
+		name: 'mouseDiv',
+		// style: (props)=>({left: props.mouse.x + 'px', top: props.mouse.y + 'px'})
+	}))`
+		position: absolute;
+		background-color: black;
+		border: 5px solid;
+	`;
+
 	return (
-			<div name='mouseDiv' className = {className} ></div>
+			<MouseDom/>
 		);
 }
 
-const StyledMouse = styled(Mouse)`
-	position: absolute;
-	background-color: black;
-	border: 5px solid;
-	left: ${props => props.mouse.x + 'px'};
-	top: ${props=>props.mouse.y + 'px'};
-`;
 
-const MouseWithMouse = MouseTrackerHoc(StyledMouse);
+// const StyledMouse2 = styled.div.attrs(({
+// 	style:(props)=>({left:10+'px', top: props.posY + 'px'})
+// }))`
+// 	position: absolute;
+// 	background-color: black;
+// 	border: 5px solid;
+// `;
+
+
+
+const MouseWithMouse = MouseTrackerHoc(Mouse);
 export {MouseWithMouse};
