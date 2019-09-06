@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 // import InputIncre from './InputIncre';
 
-import InputIncreHooks from './component/InputIncreHooks';
+import InputIncreHooks, {InputUnIncre} from './component/InputIncreHooks';
 import { StyledCom, WithStyledOver } from './component/StyledCom';
 
 import {MouseWithMouse,MouseRP} from './component/MouseTracker';
@@ -13,6 +13,9 @@ const Container = ()=>{
 	return (
 		<>
 		<InputIncreHooks max = {100} min={0}/>
+		<div name='refpart'>
+		<InputUnIncre />
+		</div>
 		<StyledCom/>
 		<WithStyledOver />
 		<MouseWithMouse />
