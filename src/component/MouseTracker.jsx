@@ -1,3 +1,12 @@
+
+/**
+ * This file is used to learning the HOC and Render Props.
+ * It shows the basic use of these two ways.
+ * HOC is easilly understood since it is from the abstraction viewpoint. Hoc actually could be implemented by extends the wrappedComponent 
+ *    which could be control the render(render-reverse Control)
+ * Render Props could be understood from the view of render or react children way.
+ */
+
 import React, { Component, useState } from 'react';
 
 import styled from 'styled-components';
