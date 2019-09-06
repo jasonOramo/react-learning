@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 import styled from 'styled-components';
 
 
-
+/**
+ * [description]
+ * @param  {[type]} WrappedComponent [Rect Component need to be wrapped]
+ * @return {[type]}                  [description]
+ */
 const MouseTrackerHoc = (WrappedComponent)=>{
 	class MouseTracker extends Component{
 		constructor(props){
@@ -53,6 +57,38 @@ const Mouse = (props)=>{
 		);
 }
 
+/**
+ * Mouse Tracker using render props and hooks
+ * @param  {[object]} props [description]
+ * @return {[element]}       [description]
+ */
+const MouseTrackerRP = (props)=>{
+	const [position, setPosition] = useState({x:0,y:0});
+	const handleMouseMove = (event)=>{
+		setPosition({x:event.clientX, y: event.clientY});
+	}
+	const {renderP} = props;
+	const StylSedDiv = styled.div`
+		border: 2px solid blue;
+	`;
+	return (
+		<StylSedDiv onMouseMove = {handleMouseMove} >
+			<p> Mouse position is ({position.x},{position.y})</p>
+			{renderP(position)}
+		</StylSedDiv>
+		)
+}
+
+const MouseRP = ()=>{
+	return (
+		<MouseTrackerRP renderP = {pos=>(
+			<Mouse mouse={pos} />
+			)
+		}/>
+		);
+}
+
+
 
 // const StyledMouse2 = styled.div.attrs(({
 // 	style:(props)=>({left:10+'px', top: props.posY + 'px'})
@@ -65,4 +101,4 @@ const Mouse = (props)=>{
 
 
 const MouseWithMouse = MouseTrackerHoc(Mouse);
-export {MouseWithMouse};
+export {MouseWithMouse, MouseRP};

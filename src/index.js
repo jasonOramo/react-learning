@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import InputIncreHooks from './component/InputIncreHooks';
 import { StyledCom, WithStyledOver } from './component/StyledCom';
 
-import {MouseWithMouse} from './component/MouseTracker';
+import {MouseWithMouse,MouseRP} from './component/MouseTracker';
 
 const Container = ()=>{
 	return (
@@ -16,6 +16,9 @@ const Container = ()=>{
 		<StyledCom/>
 		<WithStyledOver />
 		<MouseWithMouse />
+		<div className='render-props'>
+			<MouseRP />
+		</div>
 		</>
 		);
 };
