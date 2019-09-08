@@ -4,9 +4,9 @@ import { act, Simulate } from "react-dom/test-utils";
 
 // import InputIncre from './InputIncre';
 
-import InputIncreHooks from './InputIncreHooks';
+import InputIncreHooks, {InputUnIncre} from './InputIncreHooks';
 
-let InputIncre  = InputIncreHooks;
+let InputIncre  = InputUnIncre;
 
 let container = null;
 beforeEach(() => {
