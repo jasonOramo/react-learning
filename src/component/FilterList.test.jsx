@@ -35,6 +35,13 @@ describe('normal test',()=>{
 		const filterList = document.querySelector('ul');
 		expect(filterList).not.toBeNull();
 	});
+	it('default props',()=>{
+		act(()=>{
+			render(<FilterList items = {items} />,container);
+		});
+		const filterInput = document.querySelector('input');
+		expect(filterInput.value).toBe('');
+	});
 	it('change input',()=>{
 		act(()=>{
 			render(<FilterList items = {items} filter = {''} />,container);

@@ -28,5 +28,8 @@ class FilterList extends Component{
 			);
 	}
 }
+FilterList.defaultProps ={
+	filter: ''
+};
 
 export default FilterList;

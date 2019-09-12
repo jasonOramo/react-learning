@@ -9,7 +9,16 @@ import { StyledCom, WithStyledOver } from './component/StyledCom';
 
 import {MouseWithMouse,MouseRP} from './component/MouseTracker';
 
+import FilterList from './component/FilterList';
+
 const Container = ()=>{
+	var items = [];
+	for(let i = 0; i < 4; i++){
+		items.push({
+			name:'item'+i,
+			key:i
+		});
+	}
 	return (
 		<>
 		<InputIncreHooks max = {100} min={0}/>
@@ -22,6 +31,7 @@ const Container = ()=>{
 		<div className='render-props'>
 			<MouseRP />
 		</div>
+		<FilterList items={items} />
 		</>
 		);
 };
