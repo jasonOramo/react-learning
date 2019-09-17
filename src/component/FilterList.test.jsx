@@ -3,7 +3,7 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 
 
-import FilterList from './FilterList';
+import FilterList,{FilterListHook} from './FilterList';
 
 var container = null;
 
@@ -52,4 +52,21 @@ describe('normal test',()=>{
 		const filterItems = document.querySelector('li');
 		expect(filterItems).toBeNull();
 	})
-})
+});
+
+describe('hook test',()=>{
+	let items = [];
+	for(let i = 0; i < 10; i++){
+		items.push({
+			key: i,
+			name:'items'+i
+		});
+	}
+	it('normal render',()=>{
+		act(()=>{
+			render(<FilterListHook items = {items} filter = {''} />,container);
+		})
+		const filterList = document.querySelector('ul');
+		expect(filterList).not.toBeNull();
+	});
+});

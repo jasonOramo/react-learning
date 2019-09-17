@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component, useState} from 'react';
 
 class FilterList extends Component{
 	constructor(props){
@@ -31,5 +31,24 @@ class FilterList extends Component{
 FilterList.defaultProps ={
 	filter: ''
 };
+
+
+export const FilterListHook = (props)=>{
+	const [filter, setFilter] = useState(props.filter || '');
+	const {items} = props;
+	const handleChange = (event)=>{
+		setFilter(event.target.value);
+	};
+	const filterdItems = items.filter(item=>(item.name.indexOf(filter) > -1));
+	return (
+		<>
+		<input value={filter} onChange={handleChange} />
+		<ul>
+			{filterdItems.map(item=><li key={item.key}>{item.name}</li>)}
+		</ul>
+		</>
+	);
+}
+
 
 export default FilterList;

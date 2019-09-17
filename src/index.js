@@ -9,7 +9,7 @@ import { StyledCom, WithStyledOver } from './component/StyledCom';
 
 import {MouseWithMouse,MouseRP} from './component/MouseTracker';
 
-import FilterList from './component/FilterList';
+import FilterList, {FilterListHook} from './component/FilterList';
 
 const Container = ()=>{
 	var items = [];
@@ -31,7 +31,7 @@ const Container = ()=>{
 		<div className='render-props'>
 			<MouseRP />
 		</div>
-		<FilterList items={items} />
+		<FilterListHook items={items}/>
 		</>
 		);
 };
