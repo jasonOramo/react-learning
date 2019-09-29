@@ -51,7 +51,17 @@ describe('normal test',()=>{
 		Simulate.change(filterInput,{'target':{'value':20}});
 		const filterItems = document.querySelector('li');
 		expect(filterItems).toBeNull();
-	})
+	});
+	it('change input to check filter', ()=>{
+		act(()=>{
+			render(<FilterList items = {items} filter = {''} />,container);
+		})
+
+		const filterInput = document.querySelector('input');
+		Simulate.change(filterInput,{'target':{'value':3}});
+		const filterItems = document.querySelectorAll('li');
+		expect(filterItems.length).toBe(1);
+	});
 });
 
 describe('hook test',()=>{

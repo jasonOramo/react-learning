@@ -54,7 +54,10 @@ const Mouse = (props)=>{
 
 	const MouseDom = styled.div.attrs((mouse)=>({
 		name: 'mouseDiv',
-		// style: (props)=>({left: props.mouse.x + 'px', top: props.mouse.y + 'px'})
+		style: {
+			left: props.mouse.x + 'px', 
+			top: props.mouse.y + 'px'
+		}
 	}))`
 		position: absolute;
 		background-color: black;
